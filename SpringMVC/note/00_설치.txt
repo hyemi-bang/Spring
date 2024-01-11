@@ -1,0 +1,17 @@
+00_설치.txt
+
+# STS3 설치
+
+	- 구글에 spring 검색 후 홈페이지 접속
+	- Projects -> Developments Tools -> STS4
+	- Looking for Spring Tool Suite 3?의 링크를 클릭 후 다운로드
+
+#Spring MVC Project 환경 설정
+
+	- sts.ini에 -vm 옵션을 추가 (옵션의 값은 javaw.exe경로, JDK11을 사용할 것)
+	- sts3 실행
+	- Server에 톰캣 등록 (이클립스에서 가져온 서버 셋팅은 원본의 복사본이다.)
+	- Window - preferences - encoding 검색 후 모두(HTML, CSS, JSP) UTF-8로 변경
+	- File - New - Spring Legacy Project - Template 에 Spring MVC Project 선택
+	- 패키지 명 : com.회사명.프로젝트명설정 (모두 소문자 사용)
+	- 프로젝트 생성 후 빨간줄이 사라지지 않는다면 프로젝트 우클릭 - Maven - Update Project 
