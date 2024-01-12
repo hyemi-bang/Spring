@@ -15,7 +15,7 @@
 	
 # 스프링의 메인 컨섭
 
-	1. POJO (Planin Old Java Object)
+	1. POJO (Plain Old Java Object)
 	 - JSP처럼 별도의 공부가 필요한 문법보다 Java의 문법을 선호한다
 	 - 데이터 처리과정(백엔드)에 JSP코드가 섞이는 것은 바람직 하지 않으며
 	   순수 JAVA코드로 작성되어야 한다
