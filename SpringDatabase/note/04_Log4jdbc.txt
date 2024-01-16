@@ -1,0 +1,61 @@
+04_Log4jdbc.txt
+
+
+#Log4jdbc
+
+- jdbc에서 발생하는 작업들을 로그로 찍어주는 라이브러리
+- DB와 관련된 디버깅이 매우 수월해진다
+
+
+# 적용순서
+
+ 1. pom.xml에 적용
+
+ <dependency>
+    <groupId>org.bgee.log4jdbc-log4j2</groupId>
+    <artifactId>log4jdbc-log4j2-jdbc4.1</artifactId>
+    <version>1.16</version>
+ </dependency>
+
+ 2. driverClassName, jdbcUrl 변경
+
+	<property name ="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>
+	<property name ="jdbcUrl" value="jdbc:oracle:thin:@localhost:1521:XE"/> 
+	=>
+	<property name="driverClassName" value= "net.sf.log4jdbc.sql.jdbcapi.DriverSpy"/>
+	<property name="jdbcUrl" value="jdbc:log4jdbc:oracle:thin:@localhost:1521:XE" />
+   
+ 3. resources에 log4jdbc.log4j2.properties 파일 추가
+
+ 파일명	: log4jdbc.log4j2.properties
+ 파일 내용	: log4jdbc.spylogdelegator.name=net.sf.log4jdbc.log.slf4j.Slf4jSpyLogDelegator
+
+ 4. log4j.xml에 원하는 logger를 추가 하여 사용
+ 
+ 	4.2.2. Configure the loggers
+ 	
+	jdbc.sqlonly	: Logs only SQL. 
+					  SQL executed within a prepared statement is automatically 
+					  shown with it's bind arguments replaced with the data bound at that position, 
+					  for greatly increased readability.
+					  SQL만 추가하는 로거.
+					  
+	jdbc.sqltiming	: Logs the SQL, post-execution, including timing statistics on how long the SQL took to execute.
+					  SQL과 해당 SQL의 실행시간을 함께 추가하는 로거.
+					  
+	jdbc.audit		: Logs ALL JDBC calls except for ResultSets. This is a very voluminous output, 
+					  and is not normally needed unless tracking down a specific JDBC problem.
+					  ResultSet을 제외한 모든 JDBC관련 호출을 추가하는 로거, 매우 방대하다.
+					  평소에 사용하기 보다는 JDBC가 문제를 일으키는 경우 사용해볼만 하다.
+					  
+	jdbc.resultset	: Even more voluminous, because all calls to ResultSet objects are logged.
+					  ResultSet에 대한 모든 호출이 추가되는 로거. 양이 매우 방대하다.
+					  
+	jdbc.resultsettable	: Log the jdbc results as a table. Level debug will fill in unread values in the result set.
+						  ResultSet을 테이블 형식으로 추가해주는 로거. 
+						  어떤 값을 읽지 않았는지 표시해준다.
+						  
+	jdbc.connection	: Logs connection open and close events as well as dumping all open connection numbers. 
+					  This is very useful for hunting down connection leak problems.
+					  연결이 open /close 되는 것을 표시해준다.
+					  연결이 끊어지지 않고 남아있는 경우를 찾아낼 때 매우 유용하다.
