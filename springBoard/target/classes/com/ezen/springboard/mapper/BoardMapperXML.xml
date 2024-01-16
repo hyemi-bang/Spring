@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ezen.springboard.mapper.BoardMapperXML">
+
+ <select id="getAll" resultType="com.ezen.springboard.dto.BoardDTO">
+       SELECT * FROM myboard
+  </select>
+  <select id="listBoardTitles" >
+        SELECT board_title FROM myboard
+    </select>
+
+</mapper>
