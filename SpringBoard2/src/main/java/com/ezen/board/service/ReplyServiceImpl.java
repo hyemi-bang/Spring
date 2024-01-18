@@ -1,5 +1,7 @@
 package com.ezen.board.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
@@ -28,4 +30,9 @@ public class ReplyServiceImpl implements ReplyService {
             return result;
         }
     }
+
+	@Override
+	public List<ReplyDTO> getRepliesAll(int board_id) {
+		return replyMapper.getRepliesAll(board_id);
+	}
 }

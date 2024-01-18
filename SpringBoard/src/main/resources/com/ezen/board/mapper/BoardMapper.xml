@@ -40,12 +40,7 @@
               #{board_password},
               #{board_writer})   
      </insert>
-     
-    <select id="getReplyCountByBoardId" resultType="java.lang.Integer">
-        SELECT COUNT(*) FROM replies WHERE board_id = #{board_id}
-    </select>
-    
-    
+         
   </mapper>
   
   

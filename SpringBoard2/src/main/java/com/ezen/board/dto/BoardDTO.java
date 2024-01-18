@@ -13,6 +13,6 @@ public class BoardDTO {
 	private String board_writer;
 	private Integer view_count;
 	private Date write_date;
-	private int reply_count;
+	private Integer reply_count;
 
 }

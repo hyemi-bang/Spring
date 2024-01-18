@@ -8,6 +8,11 @@
 		SELECT * FROM myreply WHERE board_id=#{board_id} ORDER BY reply_date DESC
 	</select>
 	
+	<select id="getRepliesAll" resultType="com.ezen.board.dto.ReplyDTO">
+		 SELECT * FROM myreply WHERE board_id = #{board_id} ORDER BY reply_date DESC
+	</select>
+	
+	
 	<insert id="insert">
 	INSERT INTO myreply (reply_id, board_id, reply_writer, reply_content, reply_date)
         values(reply_id_seq.nextval, #{board_id}, #{reply_writer}, #{reply_content}, #{reply_date})

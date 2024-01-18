@@ -48,22 +48,34 @@
 			<th>첨부파일</th>
 			<td><input type="file" /></td>
 		</tr>
-
 	</table>
-
 	<hr>
-	<c:forEach items="${replies}" var="reply">
-		<div>
-			[${reply.reply_writer}] ${reply.reply_content} <span>${reply.reply_date}</span>
-		</div>
-		<form action="./reply/update" method="POST">
-			<input type="hidden" name="reply_id" value="${reply.reply_id}" />
-			<input type="submit" value="수정하기" />
-		</form>
-	</c:forEach>
+	
+		<!-- 댓글 목록 표시 부분 -->
+		<c:if test="${not empty replies}">
+		    <div class="reply-list">
+		        <h2>댓글 목록</h2>
+		        <ul>
+		            <c:forEach items="${replies}" var="reply">
+		                <li>
+		                    <div>${reply.reply_writer}</div>
+		                    <div>${reply.reply_content}</div>
+		                    <div>${reply.reply_date}</div>
+		                </li>
+		            </c:forEach>
+		            <form action="./reply/update" method="POST">
+					<input type="hidden" name="reply_id" value="${reply.reply_id}" />
+					<input type="submit" value="수정하기" />
+					</form>
+		        </ul>
+		    </div>
+		</c:if>
 
-	<form action="./reply" method="POST">
-		<table border="2">
+	<!-- 댓글 작성 폼 부분 -->
+	<div class="reply-form">
+	    <h2>댓글 작성</h2>
+	    <form action="./reply" method="post">
+	    <table border="2">
 			<tr>
 				<th>글쓴이</th>
 				<td><input name="board_writer" type="text" /></td>
@@ -77,17 +89,15 @@
 				<td><textarea name="board_content" cols="20" rows="10"></textarea></td>
 			</tr>
 			<tr>
-				<th></th>
+				<th>글내용</th>
 				<td>
-				<input type="hidden" name="board_id"value="${board.board_id}" />
-				<input type="submit" value="댓글달기" />
-				</td>
-
-			</tr>
-		</table>
-	</form>
-
-
-
+		        <input type="hidden" name="board_id" value="${board.board_id}" />
+		        <input type="submit" value="댓글 작성" />
+		        </td>
+	        </tr>
+    </form>
+</div>
+	
+	
 </body>
 </html>
