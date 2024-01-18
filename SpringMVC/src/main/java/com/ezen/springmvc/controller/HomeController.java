@@ -36,7 +36,8 @@ public class HomeController {
 		Department dept = new Department();
 		Coffee coffee = new Coffee();
 		
-		//@NonNull 필드에 null을 넣으려는경우 익셉션을 발생시켜준다
+		//@NonNull 필드에 null을 넣으려는 경우 익셉션을 발생시켜준다
+		// coffee 테이블에 @NonNull이 설정되어있으면 충돌이 나서 오류가 난다.
 		 try {
 	         coffee.setCoffee_id(null);
 	      }
@@ -49,10 +50,11 @@ public class HomeController {
 		log.info(coffee);
 		
 		int a = calculator.diff(10, 13);
-
+		
+		// log4j.xml에서 설정한 level에 따라 나오게 되고 설정하지 않으면 기본셋팅인 warn을 기준으로해서 나온다
 		log.fatal("Welcome to HomeController!!");
 		log.error("Welcome to HomeController!!");
-		log.warn("Welcome to HomeController!!");
+		log.warn("Welcome to HomeController!!"); //warning메세지를 남김
 		log.info("Welcome to HomeController!!");
 		log.debug("Welcome to HomeController!!");
 		log.trace("Welcome to HomeController!!");

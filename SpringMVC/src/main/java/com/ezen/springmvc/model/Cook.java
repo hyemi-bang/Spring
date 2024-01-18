@@ -3,10 +3,10 @@ package com.ezen.springmvc.model;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-@Repository
 //@Component 
 // 어노테이션이 사용되어 이 클래스를 Spring 빈으로 선언, Spring이 해당 클래스의 인스턴스를 관리하도록 지시하는 것 
 // 컴포넌트 추가해야 JSP에서 수거해서 생성자를 만들어준다 (?)
+@Repository
 public class Cook {
 	@Autowired
 	Dish dish; //= new Dish();

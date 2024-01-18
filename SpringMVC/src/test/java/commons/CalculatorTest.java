@@ -5,6 +5,8 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
 
+import commons.Calculator;
+
 public class CalculatorTest {
 
 	Calculator calculator = new Calculator();
