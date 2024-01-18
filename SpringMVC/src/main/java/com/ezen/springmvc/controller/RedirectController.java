@@ -13,19 +13,18 @@ import lombok.extern.log4j.Log4j;
 @Controller
 public class RedirectController {
 
+	// 해당 경로로 들어가면 "redirect:/abc/a";로 리다이렉트 abc/a로 이동한다는거지 
    @RequestMapping(value = "/redirect/test1", method = RequestMethod.GET)
-
    public String test1() {
-
       return "redirect:/abc/a";
    }
+   
 
    @RequestMapping(value = "/redirect/test2", method = RequestMethod.GET)
-
    public String test2(RedirectAttributes rattr) {
       // 리다이렉트 요청시 GET방식 파라미터로 함께 보내는 값들을 RedirectAttribute라고 칭한다
-      rattr.addAttribute("age", 20);
-      return "redirect:/abc/b?user=admin&t=a";
+      rattr.addAttribute("age", 20);  // 파라미터 age 20으로 설정
+      return "redirect:/abc/b?user=admin&t=a"; // "/abc/a"로 이동하면 쿼리 파라미터로  "user=admin"과 "t=a"를 함께 전달한다1
    }
 
    @RequestMapping(value = "/abc/b", method = RequestMethod.GET)
