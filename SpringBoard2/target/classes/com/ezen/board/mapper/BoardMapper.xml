@@ -3,16 +3,30 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
  <mapper namespace="com.ezen.board.mapper.BoardMapper" >
-     <select id="getAll" resultType="com.ezen.board.dto.BoardDTO">
+ 
+  	<select id="getAll" resultType="com.ezen.board.dto.BoardDTO">
+		SELECT * FROM myboard ORDER BY board_id DESC
+	</select>
+
+	<select id="getAllWithReplyCount"
+		resultType="com.ezen.board.dto.BoardDTO">
+		SELECT myboard.*,
+		(SELECT count(reply_id)
+		FROM myreply WHERE myreply.board_id = myboard.board_id) AS reply_count
+		FROM myboard ORDER BY board_id DESC
+	</select>
+     
+     
+     <!-- <select id="getAll" resultType="com.ezen.board.dto.BoardDTO">
      SELECT b.*,
      (select count(r.reply_id) from myreply r where b.board_id = r.board_id)as reply_count
      FROM myboard b ORDER BY board_id DESC
-     	<!-- sql에 있는 테이블만 가져오고 카운트는 테이블에 없어 
+     	sql에 있는 테이블만 가져오고 카운트는 테이블에 없어 
      	 리플라이아이디를 숫자 새면 된다..? 어떻게? 
      	 SELECT b.*, COUNT(r.reply_id) FROM myboard b LEFT JOIN replies r ON b.board_id = r.board_id
      	ORDER BY board_id DESC
-     	  -->
-     </select>
+     	 
+     </select> -->
      
      <select id="get" resultType="com.ezen.board.dto.BoardDTO">
         SELECT * FROM myboard WHERE board_id=#{board_id}

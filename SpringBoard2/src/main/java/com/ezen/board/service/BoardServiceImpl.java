@@ -1,7 +1,5 @@
 package com.ezen.board.service;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
@@ -17,7 +15,9 @@ public class BoardServiceImpl implements BoardService {
 
 	@Override
 	public void list(Model model) {
-		model.addAttribute("boards", boardMapper.getAll());
+		//model.addAttribute("boards", boardMapper.getAll());
+		//boardMapper.getAll()을 할때 업그레이드 된 getAll이 필요하다 왜냐햐면 댓글을 봐야하기때문
+	      model.addAttribute("boards",boardMapper.getAllWithReplyCount());
 	}
 
 	@Override

@@ -9,5 +9,7 @@ public interface ReplyMapper {
 	List<ReplyDTO> getAll(int board_id);
 
 	int insert(ReplyDTO replyDTO);
+
+	List<ReplyDTO> getRepliesAll(int board_id);
 	
 }
