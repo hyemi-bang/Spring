@@ -1,18 +1,16 @@
 package com.ezen.springmvc.model;
 
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
-import lombok.Setter;
 
-@NoArgsConstructor
-@RequiredArgsConstructor
-@Getter
-@Setter
+//@NoArgsConstructor
+//@RequiredArgsConstructor
+@Data
 public class Coffee {
 	
-	@NonNull
+	//@NonNull
 	private Integer coffee_id;
 	private String coffee_name;
 	private double coffee_price;

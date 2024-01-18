@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="com.ezen.board.mapper.BoardMapper" >
+     <select id="getAll" resultType="com.ezen.board.dto.BoardDTO">
+     SELECT b.*,
+     (select count(r.reply_id) from myreply r where b.board_id = r.board_id)as reply_count
+     FROM myboard b ORDER BY board_id DESC
+     	<!-- sql에 있는 테이블만 가져오고 카운트는 테이블에 없어 
+     	 리플라이아이디를 숫자 새면 된다..? 어떻게? 
+     	 SELECT b.*, COUNT(r.reply_id) FROM myboard b LEFT JOIN replies r ON b.board_id = r.board_id
+     	ORDER BY board_id DESC
+     	  -->
+     </select>
+     
+     <select id="get" resultType="com.ezen.board.dto.BoardDTO">
+        SELECT * FROM myboard WHERE board_id=#{board_id}
+     </select>
+     
+     <!-- KeyProperty: 전달한 DTO에 방금 insert 또는 update했을때의 키값을 넣어주는 mybatis 옵션 -->
+  <!--    <insert id="insert" parameterType="com.ezen.board.dto.BoardDTO"
+      useGeneratedKeys="true" keyProperty="board_id"> -->
+      
+     <insert id="insert" parameterType="com.ezen.board.dto.BoardDTO">
+	     <selectKey resultType="Integer" keyProperty="board_id" order="BEFORE">
+	      SELECT myboard_id_seq.nextval FROM dual
+	     </selectKey>
+        INSERT INTO
+           myboard(
+              board_id,
+              board_title,
+               board_content,
+               board_password,
+               board_writer)
+           VALUES(
+              #{board_id},
+              #{board_title},
+              #{board_content},
+              #{board_password},
+              #{board_writer})   
+     </insert>
+     
+  </mapper>
+  
+  
+  
+  
