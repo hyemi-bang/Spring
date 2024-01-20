@@ -131,3 +131,4 @@ btn3.addEventListener('click', (e)=>{
     xhttp.open('GET', './rest/v6');
     xhttp.send();
 });
+

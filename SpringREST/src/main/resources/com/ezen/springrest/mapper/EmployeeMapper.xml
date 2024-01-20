@@ -5,7 +5,8 @@
   
    <mapper namespace="com.ezen.springrest.mapper.EmployeeMapper" >
    
-   <select id="getAll" resultType="com.ezen.springrest.dto.EmployeeDTO">
-   	SELECT * FROM employees 
+   <select id="getAllEmployees" resultType="com.ezen.springrest.dto.EmployeeDTO">
+       SELECT * FROM employees ORDER BY employee_id DESC
    </select>
-   </mapper>
+   
+ </mapper>

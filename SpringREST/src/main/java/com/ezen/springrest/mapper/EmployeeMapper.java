@@ -6,6 +6,6 @@ import com.ezen.springrest.dto.EmployeeDTO;
 
 public interface EmployeeMapper {
 	
-	List<EmployeeDTO> getAll();
+	List<EmployeeDTO> getAllEmployees();
 
 }

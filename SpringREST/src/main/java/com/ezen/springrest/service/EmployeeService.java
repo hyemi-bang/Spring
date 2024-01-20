@@ -1,8 +1,11 @@
 package com.ezen.springrest.service;
 
+import java.util.List;
+
 import org.springframework.ui.Model;
 
-public interface EmployeeService {
+import com.ezen.springrest.dto.EmployeeDTO;
 
-	void list(Model model);
+public interface EmployeeService {
+    List<EmployeeDTO> getAllEmployees();
 }
