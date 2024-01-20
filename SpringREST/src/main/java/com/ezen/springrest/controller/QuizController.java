@@ -38,13 +38,11 @@ public class QuizController {
 
 	@GetMapping(value = "/xmlQ", produces = MediaType.APPLICATION_XML_VALUE)
 	public List<EmployeeDTO> value8() {
-		// DB에서 모든 직원 데이터 가져오기
+		
 		List<EmployeeDTO> allEmployees = employeeService.getAllEmployees();
 
-		// 리스트를 섞음
 		Collections.shuffle(allEmployees);
 
-		// 리스트에서 처음 10개의 직원을 선택
 		List<EmployeeDTO> randomEmployees = allEmployees.subList(0, Math.min(allEmployees.size(), 10));
 
 		return randomEmployees;

@@ -101,61 +101,6 @@ public class RestSampleController {
 		
 		return emps;
 	}
-	
-	@GetMapping(value = "/v7", produces = MediaType.APPLICATION_JSON_VALUE)
-	public List<EmployeeDTO> value7() {
-
-		List<EmployeeDTO> emps = new ArrayList<>();
-		EmployeeDTO emp1 = new EmployeeDTO();
-
-		emp1.setEmployee_id(221);
-		emp1.setFirst_name("포1");
-		emp1.setLast_name("세이돈1");
-
-		EmployeeDTO emp2 = new EmployeeDTO();
-
-		emp2.setEmployee_id(222);
-		emp2.setFirst_name("포2");
-		emp2.setLast_name("세이돈2");
-
-		EmployeeDTO emp3 = new EmployeeDTO();
-
-		emp3.setEmployee_id(223);
-		emp3.setFirst_name("포3");
-		emp3.setLast_name("세이돈3");
-		emps.add(emp1);
-		emps.add(emp2);
-		emps.add(emp3);
-		return emps;
-	}
-	
-	// jackson-databind 는 List<DTO>로 리턴해도 잘 변환해줌
-		@GetMapping(value = "/v8", produces = MediaType.APPLICATION_XML_VALUE)
-		public List<EmployeeDTO> value8() {
-
-			List<EmployeeDTO> emps = new ArrayList<>();
-			EmployeeDTO emp1 = new EmployeeDTO();
-
-			emp1.setEmployee_id(221);
-			emp1.setFirst_name("포1");
-			emp1.setLast_name("세이돈1");
-
-			EmployeeDTO emp2 = new EmployeeDTO();
-
-			emp2.setEmployee_id(222);
-			emp2.setFirst_name("포2");
-			emp2.setLast_name("세이돈2");
-
-			EmployeeDTO emp3 = new EmployeeDTO();
-
-			emp3.setEmployee_id(223);
-			emp3.setFirst_name("포3");
-			emp3.setLast_name("세이돈3");
-			emps.add(emp1);
-			emps.add(emp2);
-			emps.add(emp3);
-			return emps;
-		}
 	@GetMapping("/entity1")
 	// ResponseEntity 제네릭이 필요한 클래스
 	public ResponseEntity<String> entity1() {		
