@@ -1,5 +1,10 @@
 
-const json1 = document.getElementById('json1');
+const randomEmployeesJson = document.getElementById('randomEmployeesJson');
+const randomEmployeesXml = document.getElementById('randomEmployeesXml');
+
+
+const json1 = document.getElementById('jsonBtn');
+const xml1 = document.getElementById('xmlBtn');
 
 json1.addEventListener('click', (e) => {
 
@@ -36,7 +41,6 @@ json1.addEventListener('click', (e) => {
     xhttp.send();
 })
 
-const xml1 = document.getElementById('xml1');
 
 xml1.addEventListener('click', (e) => {
     const xhttp = new XMLHttpRequest();
@@ -61,6 +65,3 @@ xml1.addEventListener('click', (e) => {
     xhttp.open('GET', './quiz/xmlQ');
     xhttp.send();
 })
-
-const randomEmployeesJson = document.getElementById('randomEmployeesJson');
-const randomEmployeesXml = document.getElementById('randomEmployeesXml');

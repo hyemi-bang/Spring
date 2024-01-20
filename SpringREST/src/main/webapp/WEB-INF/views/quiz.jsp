@@ -14,13 +14,13 @@
 
 	<h1>Quiz</h1>
 	<div>
-		<h3>추첨 버튼을 누르면 랜덤으로 10명의 사원을 골라와서 화면에 출력해주는 기능을 만들기 JSON 버전과
-			XML버전으로 한번씩 만들기</h3>
+		<h3>추첨 버튼을 누르면 랜덤으로 10명의 사원을 골라와서 화면에 출력해주는 기능을 만들기
+			 JSON 버전과 XML버전으로 한번씩 만들기</h3>
 	</div>
 
 	<div>
-		<button id="json1">json 추첨</button>
-	<button id="xml1">xml 추첨</button>
+		<button id="jsonBtn">json 추첨</button>
+		<button id="xmlBtn">xml 추첨</button>
 	</div>
 	
     <div id="randomEmployeesJson"></div>
