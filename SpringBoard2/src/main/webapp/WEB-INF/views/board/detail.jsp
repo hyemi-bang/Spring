@@ -95,8 +95,9 @@
 		        <input type="submit" value="´ñ±Û ÀÛ¼º" />
 		        </td>
 	        </tr>
-    </form>
-</div>
+	       </table>
+   		 </form>
+	</div>
 	
 	
 </body>
