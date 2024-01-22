@@ -7,6 +7,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -142,5 +144,34 @@ public class RestSampleController {
 				.contentType(MediaType.APPLICATION_JSON)
 				.body(emp);
 		// {"employee_id":20,"first_name":"Allen","last_name":"Worker"} 출력
+	}
+	
+	@PutMapping("/emp")
+	// put 방식으로 접속하면 emp가 있을것이다
+	public ResponseEntity<EmployeeDTO> updateEmp(
+			@RequestBody EmployeeDTO dto ){
+		log.info("PUT :" + dto);
+		//	return ResponseEntity.ok(null);
+		//INFO : com.ezen.springrest.controller.RestSampleController 
+		//- PUT :EmployeeDTO(employee_id=188, first_name=John, last_name=Doe)
+		
+		// DB에 업데이트 후 결과를 얻어온다고 가정
+		int result =(int)(Math.random() * 2);
+		
+		// 서버측에 결과에 따라 다른 상태 코드를 응답할 수 있다
+		if(result == 1) {
+			return ResponseEntity
+					.status(HttpStatus.OK)
+					.contentType(MediaType.APPLICATION_JSON)
+					.body(dto); 
+			// DB 업데이트 성공한 데이터
+			// 상태코드 200과 업데이트된 행을 함께 전달해 준다
+		} else {
+			// DB 업데이트 실패했을 때
+			// 상태코드 400과 null 응답
+			return ResponseEntity
+					.status(HttpStatus.BAD_REQUEST)
+					.body(null);
+		}
 	}
 }

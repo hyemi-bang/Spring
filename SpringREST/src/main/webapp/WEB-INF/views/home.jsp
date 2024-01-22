@@ -18,6 +18,8 @@
    <button id="btn1">버튼1</button>
    <button id="btn2" >버튼2(JSON)</button>
    <button id="btn3">버튼3(XML)</button>
+   <hr>
+   <button id="btn4">버튼4(PUT 방식 xhttp요청)</button>
    
    <script src="${homeJS}"></script>
 </body>

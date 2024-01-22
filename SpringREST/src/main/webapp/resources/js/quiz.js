@@ -10,17 +10,16 @@ json1.addEventListener('click', (e) => {
 
     const xhttp = new XMLHttpRequest();
     xhttp.addEventListener('readystatechange', (e) => {
-        if (xhttp.status == 200 && xhttp.readyState == 4) {
+        if (xhttp.status === 200 && xhttp.readyState === 4) {
 
             const cargo = xhttp.responseText;
             const obj = JSON.parse(cargo);
-
             console.log(obj);
 
             for (let i = 0; i < obj.length; i++) {
-                console.log('1 : ', obj[i].employee_id);
-                console.log('2 : ', obj[i].first_name);
-                console.log('3 : ', obj[i].last_name);
+                console.log('employee_id : ', obj[i].employee_id);
+                console.log('first_name : ', obj[i].first_name);
+                console.log('last_name : ', obj[i].last_name);
             }
 
             for (let i = 0; i < obj.length; i++) {
@@ -45,7 +44,7 @@ json1.addEventListener('click', (e) => {
 xml1.addEventListener('click', (e) => {
     const xhttp = new XMLHttpRequest();
     xhttp.addEventListener('readystatechange', (e) => {
-       if (xhttp.readyState == 4 && xhttp.status == 200) {
+       if (xhttp.readyState === 4 && xhttp.status === 200) {
 
             const cargo = xhttp.responseXML;
             console.log(cargo)

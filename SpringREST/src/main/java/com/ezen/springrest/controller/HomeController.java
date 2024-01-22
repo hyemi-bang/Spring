@@ -24,6 +24,11 @@ public class HomeController {
 		return "quiz";
 	}
 	
+	@GetMapping("/quiz2")
+	public String quiz2() {		
+		return "quiz2";
+	}
+	
 	@ResponseBody // 이거 추가하면 "fruit" 문자열을 응답해준다.
 	@GetMapping(value = "/fruit", produces = "text/plain; charset=UTF-8") 
 	public String fruit() {

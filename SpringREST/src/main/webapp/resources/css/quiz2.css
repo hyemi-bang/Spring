@@ -1,0 +1,9 @@
+@charset "UTF-8";
+
+#fruitsJson{
+	display: grid;
+	grid-template-columns:repeat(5, 1fr);
+	gap: 5px;
+	padding: 10px;
+	text-align: center;
+}
