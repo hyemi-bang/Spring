@@ -13,6 +13,4 @@ public interface FruitService {
 	int update(FruitDTO dto);
 
 	int add(FruitDTO dto);
-	
-	int delete(FruitDTO dto);
 }

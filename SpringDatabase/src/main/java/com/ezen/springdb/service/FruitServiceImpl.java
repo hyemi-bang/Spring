@@ -53,9 +53,4 @@ public class FruitServiceImpl implements FruitService {
 	public int update(FruitDTO dto) {
 		return fruitMapper.updateFruit(dto);
 	}
-
-	@Override
-	public int delete(FruitDTO dto) {
-		return fruitMapper.delete(dto);
-	}
 }
