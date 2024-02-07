@@ -22,4 +22,9 @@
   			country_id=#{country_id} 
   		WHERE fruit_id=#{fruit_id}
   </update>
+  
+  <delete id="deleteFruit">
+    DELETE FROM fruits WHERE fruit_id = #{fruit_id}
+  </delete>
+
 </mapper>
