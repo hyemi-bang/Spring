@@ -87,23 +87,6 @@ public class FruitController {
 	
 	@GetMapping("/fruit/add")
 	public String addForm(Model model) {
-		return "/fruit/addFruit";
-	}
-	
-	@GetMapping("/fruit/delete")
-	public String deleteForm(Model model) {
-		return "/fruit/deleteFruit";
-	}
-
-	@PostMapping("/fruit/delete")
-	public String delete(FruitDTO dto) {
-		int result = fruitService.delete(dto);
-
-		if (result == 1) {
-			return "redirect:/fruit/list";
-		} else {
-			// 삭제가 실패한 경우 처리
-			return "redirect:/fruit/delete";
-		}
+		return "/fruit/add";
 	}
 }

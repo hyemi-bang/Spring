@@ -1,5 +1,7 @@
 package com.ezen.board.service;
 
+import java.util.List;
+
 import org.springframework.ui.Model;
 
 import com.ezen.board.dto.BoardDTO;

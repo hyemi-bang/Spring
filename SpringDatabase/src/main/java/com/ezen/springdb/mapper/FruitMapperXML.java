@@ -24,6 +24,5 @@ public interface FruitMapperXML {
    
    int updateFruit(FruitDTO fruit);
    
-//   int delete(int fruit_id);
-   int delete(FruitDTO dto);
+   int delete(int fruit_id);
 }
